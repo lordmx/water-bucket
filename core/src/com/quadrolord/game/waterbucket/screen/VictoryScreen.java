@@ -23,18 +23,24 @@ public class VictoryScreen extends AbstractScreen {
 
         BitmapFont font = mSkin.getFont("default");
 
-        com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle labelStyle = new com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle(font, Color.WHITE);
+        Label.LabelStyle labelStyle = new Label.LabelStyle(font, Color.WHITE);
         mSkin.add("bucket-label-style", labelStyle);
 
         Label title = new Label("Congratulations!", labelStyle);
         title.setAlignment(Align.center, Align.center);
-        addStageBounds(title, 0, 200, 400, 300);
+        title.setFontScale(3);
+        addStageBounds(title, 0, 200, 400, 100);
     }
 
     @Override
     public void draw(float delta) {
         mStage.act(delta);
         mStage.draw();
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        mStage.getViewport().update(width, height, true);
     }
 
     @Override

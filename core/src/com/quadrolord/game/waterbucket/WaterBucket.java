@@ -106,7 +106,7 @@ public class WaterBucket extends ApplicationAdapter {
 
 	public void switchToScreen(Class<? extends AbstractScreen> screenClass) {
 		try {
-			AbstractScreen screen = screenClass.getConstructor(WaterBucket.class, Game.class).newInstance(this);
+			AbstractScreen screen = screenClass.getConstructor(WaterBucket.class, Game.class).newInstance(this, mGame);
 			switchToScreen(screen, true);
 		} catch (Exception e) {
 			e.printStackTrace();
